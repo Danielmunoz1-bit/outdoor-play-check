@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Outdoor Play Recommendation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      padding: 20px;
+      background-color: #f4f4f9;
+    }
+    .container {
+      text-align: center;
+      margin-top: 50px;
+    }
+    input[type="number"] {
+      padding: 5px;
+      font-size: 16px;
+      width: 80px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Can Kids Play Outside?</h2>
+    <p>Enter the current temperature in Fahrenheit:</p>
+    <input type="number" id="tempInput" placeholder="Temp in °F">
+    <button onclick="checkPlay()">Check</button>
+    <div id="result" class="result"></div>
+  </div>
+
+  <script>
+    function checkPlay() {
+      const temp = document.getElementById('tempInput').value;
+      const result = document.getElementById('result');
+
+      if (temp === "") {
+        result.textContent = "Please enter a temperature!";
+        result.style.color = "red";
+        return;
+      }
+
+      const temperature = parseInt(temp);
+
+      if (temperature >= 32 && temperature <= 90) {
+        result.textContent = "Yes, it's safe for kids to play outside!";
+        result.style.color = "green";
+      } else {
+        result.textContent = "No, it's not safe for kids to play outside.";
+        result.style.color = "red";
+      }
+    }
+  </script>
+</body>
+</html>
