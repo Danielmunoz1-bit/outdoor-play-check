@@ -9,33 +9,42 @@
       font-family: Arial, sans-serif;
       margin: 20px;
       padding: 20px;
-      background-color: #f4f4f9;
+      background-color: #e3f2fd; /* Light blue background */
     }
     .container {
       text-align: center;
       margin-top: 50px;
     }
     input[type="number"] {
-      padding: 5px;
+      padding: 10px;
       font-size: 16px;
-      width: 80px;
+      width: 100px;
+      border: 2px solid #1e88e5; /* Blue border */
+      border-radius: 5px;
     }
     button {
       padding: 10px 20px;
-      background-color: #4CAF50;
+      background-color: #1e88e5; /* Blue button */
       color: white;
       border: none;
       cursor: pointer;
       font-size: 16px;
       margin-top: 20px;
+      border-radius: 5px;
     }
     button:hover {
-      background-color: #45a049;
+      background-color: #1976d2; /* Darker blue on hover */
     }
     .result {
       margin-top: 20px;
       font-size: 18px;
       font-weight: bold;
+    }
+    .result.green {
+      color: #388e3c; /* Green text for safe */
+    }
+    .result.red {
+      color: #d32f2f; /* Red text for not safe */
     }
   </style>
 </head>
@@ -55,7 +64,7 @@
 
       if (temp === "") {
         result.textContent = "Please enter a temperature!";
-        result.style.color = "red";
+        result.className = "result red";
         return;
       }
 
@@ -63,10 +72,10 @@
 
       if (temperature >= 32 && temperature <= 90) {
         result.textContent = "Yes, it's safe for kids to play outside!";
-        result.style.color = "green";
+        result.className = "result green";
       } else {
         result.textContent = "No, it's not safe for kids to play outside.";
-        result.style.color = "red";
+        result.className = "result red";
       }
     }
   </script>
